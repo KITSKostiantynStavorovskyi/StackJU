@@ -1,4 +1,4 @@
-package com;
+package ua.com.epam;
 
 import static org.junit.Assert.*;
 
@@ -11,34 +11,34 @@ public class MyStackTest {
 
 	
 	@Test(expected = NegativeArraySizeException.class)
-	public void wrongStackSize(){
+	public void isWrongStackSizeDeclinedTest(){
 		MyStack incorrectStack = new MyStack(-1);
 	}
 	
 	@Test
-	public void emptyTest() {
+	public void isNewStackEmptyTest() {
 		MyStack stackEmpty = new MyStack(3);
 		assertTrue(stackEmpty.empty());
 	}
 	
 	@Test
-	public void emptyNotTest() {
+	public void isEmptyCorrectTest() {
 		MyStack stack = new MyStack();
 		stack.push(2);
 		assertFalse("Empty",stack.empty());
 	}
 	
 	@Test 
-	public void pushTest(){
+	public void isPushCorrectTest(){
 		MyStack stack = new MyStack(3);
-		for (int i = 0; i<3; i++){
-			stack.push(i);
-		}
-		assertTrue(2==stack.peek());
+        stack.push(0);
+        stack.push(1);
+        stack.push(2);
+		assertTrue(2 == stack.peek());
 	}
 	
 	@Test(expected = IndexOutOfBoundsException.class)
-	public void pushOutOfStackTest(){
+	public void isPushOutOfStackCorrectTest(){
 		MyStack stack = new MyStack(3);
 		stack.push(1);
 		stack.push(2);
@@ -48,7 +48,7 @@ public class MyStackTest {
 	
 
 	@Test
-	public void peekTest(){
+	public void isPeekCorrectTest(){
 		MyStack stack = new MyStack();
 		int buf;
 		stack.push(1);
@@ -57,22 +57,22 @@ public class MyStackTest {
 	}
 	
 	@Test(expected = EmptyStackException.class)
-	public void peekEmptyTest(){
+	public void isPeekEmptyCorrectTest(){
 		MyStack stack = new MyStack();
 		stack.peek();
 	}
 	
 	@Test
-	public void popTest(){
+	public void isPopCorrectTest(){
 		MyStack stack = new MyStack();
 		stack.push(22);
 		int item = stack.pop();
-		assertTrue(22==item);
+		assertTrue(22 == item);
 		assertTrue(stack.empty());
 	}
 	
 	@Test
-	public void popEmptyTest(){
+	public void isPopCorrectForEmptyStackTest(){
 		MyStack stack = new MyStack();
 		assertNull(stack.pop());
 	}
