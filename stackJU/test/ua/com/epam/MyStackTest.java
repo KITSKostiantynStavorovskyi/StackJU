@@ -53,7 +53,7 @@ public class MyStackTest {
 		int buf;
 		stack.push(1);
 	    buf = stack.peek();
-		assertTrue("incorrect value of peek",1==buf);
+		assertTrue("incorrect value of peek",1 == buf);
 	}
 	
 	@Test(expected = EmptyStackException.class)
